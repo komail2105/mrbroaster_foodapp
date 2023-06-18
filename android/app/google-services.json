@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1070399886036",
+    "project_id": "mrbroaster-460f3",
+    "storage_bucket": "mrbroaster-460f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070399886036:android:926dbb549f6d9b9057a141",
+        "android_client_info": {
+          "package_name": "com.application.mrbroaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070399886036-h9b8539nmol7fhut1infh52na346blvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVAr5pC2aqXDwMr_l9w86f4A_O5Y-fb9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070399886036-h9b8539nmol7fhut1infh52na346blvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
