@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
       body: Align(
         alignment: Alignment.center,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const TopPart(),
@@ -63,18 +63,18 @@ class TopPart extends StatelessWidget {
     return Column(
       children: const [
         Text(
-          "Welcome To Mr Broaster",
+          "Welcome To Food Order App",
           style: TextStyle(
               fontFamily: fontProximaNova,
-              fontSize: 24,
+              fontSize: 28,
               fontWeight: FontWeight.bold),
         ),
         Text(
           "Login Or Signup To Continue.",
           style: TextStyle(
-              fontFamily: fontProximaNova,
-              fontSize: 16,
-              fontWeight: FontWeight.normal),
+            fontFamily: fontProximaNova,
+            fontSize: 20,
+          ),
         ),
       ],
     );
@@ -87,9 +87,7 @@ class CenterPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      "assets/images/logomrbroaster.png",
-      height: 244,
-      width: 244,
+      "assets/images/applogo.png",
       fit: BoxFit.cover,
     );
   }

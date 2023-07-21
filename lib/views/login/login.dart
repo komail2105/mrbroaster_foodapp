@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mrbroaster_foodapp/constants/constants.dart';
 import 'package:mrbroaster_foodapp/routes/routing_page.dart';
@@ -24,145 +25,163 @@ class _LoginPageState extends State<LoginPage> {
         Provider.of<AuthProviderLogin>(context);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              "Login",
-              style: TextStyle(
-                fontSize: 36,
-                fontFamily: fontProximaNova,
-                fontWeight: FontWeight.w700,
-                color: hColor,
-              ),
-            ),
-            Text(
-              "Login to your existant account of Dine Out",
-              style: TextStyle(
-                fontSize: doubleSize16,
-                fontFamily: fontProximaNova,
-                fontWeight: FontWeight.w400,
-                color: dColor,
-              ),
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  width: mediaQuery(context) - 72,
-                  height: 72,
-                  child: TextField(
-                    controller: _email,
-                    decoration: InputDecoration(
-                        focusedBorder: outlineInputBorder,
-                        prefixIcon: const Icon(
-                          Icons.person,
-                          color: bColor,
-                        ),
-                        hintText: 'example@gmail.com',
-                        contentPadding: edgeInsets15,
-                        border: OutlineInputBorder(
-                            borderRadius: borderRadiusCircular30)),
-                  ),
-                ),
-                SizedBox(
-                  width: mediaQuery(context) - 72,
-                  height: 72,
-                  child: TextField(
-                    controller: _password,
-                    obscureText: showpassword,
-                    decoration: InputDecoration(
-                        focusedBorder: outlineInputBorder,
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: bColor,
-                        ),
-                        suffixIcon: IconButton(
-                            onPressed: () => {
-                                  setState(() {
-                                    showpassword = !showpassword;
-                                  })
-                                },
-                            icon: showpassword
-                                ? const Icon(
-                                    Icons.visibility_off,
-                                    color: bColor,
-                                    size: 24,
-                                  )
-                                : const Icon(
-                                    Icons.visibility,
-                                    color: bColor,
-                                    size: 24,
-                                  )),
-                        hintText: '12345678',
-                        contentPadding: edgeInsets15,
-                        border: OutlineInputBorder(
-                            borderRadius: borderRadiusCircular30)),
-                  ),
-                ),
-              ],
-            ),
-            TextButton(
-                onPressed: () => {
-                      RoutingPage.goTonext(
-                          context: context, navigateTo: const ForgotPassword())
-                    },
+        resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
+          dragStartBehavior: DragStartBehavior.down,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 48.0),
                 child: Text(
-                  "Forget password?",
+                  "Login",
                   style: TextStyle(
-                    color: blueColor,
+                    fontSize: 36,
+                    fontFamily: fontProximaNova,
+                    fontWeight: FontWeight.w700,
+                    color: hColor,
                   ),
-                )),
-            authProviderLogin.loading == true
-                ? const CircularProgressIndicator()
-                : ElevatedButton(
-                    style: ButtonStyle(
-                      elevation: MaterialStateProperty.all(0),
-                      minimumSize: MaterialStateProperty.resolveWith(
-                        (states) => const Size(172, 48),
-                      ),
-                      backgroundColor: MaterialStateProperty.resolveWith(
-                        (states) => bColor,
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(doubleSize30),
-                        ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Login to your existant account of Dine Out",
+                  style: TextStyle(
+                    fontSize: doubleSize16,
+                    fontFamily: fontProximaNova,
+                    fontWeight: FontWeight.w400,
+                    color: dColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24.0, vertical: 6.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      height: 72,
+                      child: TextField(
+                        controller: _email,
+                        decoration: InputDecoration(
+                            focusedBorder: outlineInputBorder,
+                            prefixIcon: const Icon(
+                              Icons.person,
+                              color: bColor,
+                            ),
+                            hintText: 'Email',
+                            contentPadding: edgeInsets12,
+                            border: OutlineInputBorder(
+                                borderRadius: borderRadiusCircular30)),
                       ),
                     ),
-                    onPressed: () => {
-                          authProviderLogin.validationLogin(
-                              uname: _email,
-                              uemail: _email,
-                              upassword: _password,
-                              context: context)
-                        },
-                    child: const Text(
-                      "Login",
-                    )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Don't have any account?",
+                    SizedBox(
+                      height: 72,
+                      child: TextField(
+                        controller: _password,
+                        obscureText: showpassword,
+                        decoration: InputDecoration(
+                            focusedBorder: outlineInputBorder,
+                            prefixIcon: const Icon(
+                              Icons.lock,
+                              color: bColor,
+                            ),
+                            suffixIcon: IconButton(
+                                splashRadius: 20,
+                                onPressed: () => {
+                                      setState(() {
+                                        showpassword = !showpassword;
+                                      })
+                                    },
+                                icon: showpassword
+                                    ? const Icon(
+                                        Icons.visibility_off,
+                                        color: bColor,
+                                        size: 24,
+                                      )
+                                    : const Icon(
+                                        Icons.visibility,
+                                        color: bColor,
+                                        size: 24,
+                                      )),
+                            hintText: 'Password',
+                            contentPadding: edgeInsets12,
+                            border: OutlineInputBorder(
+                                borderRadius: borderRadiusCircular30)),
+                      ),
+                    ),
+                  ],
                 ),
-                TextButton(
+              ),
+              TextButton(
+                  style:
+                      TextButton.styleFrom(padding: const EdgeInsets.all(2.0)),
                   onPressed: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignupPage()))
-                  },
+                        RoutingPage.goTonext(
+                            context: context,
+                            navigateTo: const ForgotPassword())
+                      },
                   child: Text(
-                    "Signup",
-                    style: TextStyle(color: blueColor),
-                  ),
-                ),
-              ],
-            ),
-          ],
+                    "Forget password?",
+                    style: TextStyle(
+                      color: blueColor,
+                    ),
+                  )),
+              authProviderLogin.loading == true
+                  ? const CircularProgressIndicator()
+                  : customButton(
+                      width: 150,
+                      height: 48,
+                      onClick: () => {
+                        authProviderLogin.validationLogin(
+                            uname: null,
+                            upassword: _password,
+                            uemail: _email,
+                            context: context)
+                      },
+                      title: "Login",
+                    ),
+              const BottomPart(),
+            ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class BottomPart extends StatelessWidget {
+  const BottomPart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          "Don't have any account?",
+        ),
+        TextButton(
+          style: TextButton.styleFrom(
+              padding: const EdgeInsets.all(2.0),
+              alignment: Alignment.centerLeft),
+          onPressed: () => {
+            RoutingPage.goTonext(
+                context: context, navigateTo: const SignupPage())
+          },
+          child: Text(
+            "Signup",
+            style: TextStyle(color: blueColor),
+          ),
+        ),
+      ],
     );
   }
 }

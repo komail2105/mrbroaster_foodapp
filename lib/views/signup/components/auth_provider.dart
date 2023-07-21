@@ -38,6 +38,14 @@ class AuthProviderSignup with ChangeNotifier {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Please Enter A Valid Password")));
       return;
+    } else if (upassword.text.trim().isEmpty &&
+        uemail.text.trim().isEmpty &&
+        uaddress!.text.trim().isEmpty &&
+        uname.text.trim().isEmpty &&
+        uphone.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Please Enter A Valid Password")));
+      return;
     } else {
       try {
         loading = true;

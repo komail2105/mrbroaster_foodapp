@@ -23,7 +23,7 @@ class GridViewWidget extends StatefulWidget {
 
 class GridViewWidgetState extends State<GridViewWidget> {
   String query = "";
-  var result;
+  var result = "";
   searchFunction(query, searchList) {
     result = searchList.where((element) {
       return element["productName"].toUpperCase().contains(query) ||

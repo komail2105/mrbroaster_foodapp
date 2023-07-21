@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 var buttonStyle = ButtonStyle(
@@ -21,11 +20,11 @@ var outlineInputBorder = OutlineInputBorder(
   borderSide: const BorderSide(width: 2, color: bColor),
 );
 
-const edgeInsets15 = EdgeInsets.all(15);
+const edgeInsets12 = EdgeInsets.all(12);
 
 const fontProximaNova = "Proxima Nova";
 
-const bColor = Color.fromARGB(255, 250, 170, 28);
+const bColor = Color(0xFFCDE252);
 
 const wColor = Colors.white;
 
@@ -51,7 +50,7 @@ Widget customButton({
   double? width = 120,
 }) {
   return Container(
-      padding: edgeInsets15,
+      padding: edgeInsets12,
       decoration:
           BoxDecoration(color: bColor, borderRadius: borderRadiusCircular30),
       height: height,

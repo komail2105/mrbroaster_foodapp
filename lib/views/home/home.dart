@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   String query = "";
 
-  var result;
+  var result = "";
   searchFunction(query, searchList) {
     result = searchList.where((element) {
       return element["productName"].toUpperCase().contains(query) ||

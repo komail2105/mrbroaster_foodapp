@@ -15,17 +15,12 @@ class PaymentPage extends StatefulWidget {
 class _PaymentPageState extends State<PaymentPage> {
   var value = 0;
   final paymentLabels = [
-    'Credit Card / Debit Card',
     'Cash On Dilvery',
-    'Easypaisa',
-    'JazzCash'
+    'Credit Card / Debit Card',
   ];
-
   final paymentIcons = [
-    Icons.credit_card,
     Icons.money_off,
-    Icons.paypal,
-    Icons.payment,
+    Icons.credit_card,
   ];
 
   @override
@@ -75,8 +70,9 @@ class _PaymentPageState extends State<PaymentPage> {
             padding: const EdgeInsets.all(15.0),
             child: customButton(
                 onClick: () => {
-                      RoutingPage.goTonext(
-                          context: context, navigateTo: const Success())
+                      RoutingPage.goTonextReplace(
+                          context: context, navigateTo: const Success()),
+                      cartProvider.cartList.clear(),
                     },
                 title: "Pay"),
           )
