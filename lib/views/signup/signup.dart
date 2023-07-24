@@ -74,7 +74,6 @@ class _SignupPageState extends State<SignupPage> {
                         textInputAction: TextInputAction.next,
                         controller: _username,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.person,
                               color: bColor,
@@ -91,7 +90,6 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _email,
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.mail,
                               color: bColor,
@@ -108,7 +106,6 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _phone,
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.phone_android,
                               color: bColor,
@@ -125,7 +122,6 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _address,
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.location_on,
                               color: bColor,
@@ -143,7 +139,6 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _password,
                         obscureText: showpassword,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.lock,
                               color: bColor,

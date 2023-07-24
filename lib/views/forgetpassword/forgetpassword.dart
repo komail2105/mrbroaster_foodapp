@@ -47,7 +47,6 @@ class ForgotPasswordState extends State<ForgotPassword> {
                 },
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                    focusedBorder: outlineInputBorder,
                     prefixIcon: const Icon(
                       Icons.location_on,
                       color: bColor,

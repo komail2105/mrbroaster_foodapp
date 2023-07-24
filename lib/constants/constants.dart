@@ -15,11 +15,6 @@ var buttonStyle = ButtonStyle(
   ),
 );
 
-var outlineInputBorder = OutlineInputBorder(
-  borderRadius: borderRadiusCircular30,
-  borderSide: const BorderSide(width: 2, color: bColor),
-);
-
 const edgeInsets12 = EdgeInsets.all(12);
 
 const fontProximaNova = "Proxima Nova";
@@ -43,12 +38,12 @@ double mediaQueryheight(BuildContext context) =>
 var doubleSize16 = 16.0;
 var doubleSize30 = 30.0;
 
-Widget customButton({
-  required VoidCallback onClick,
-  required String title,
-  double? height = 50,
-  double? width = 120,
-}) {
+Widget customButton(
+    {required VoidCallback onClick,
+    required String title,
+    double? height = 50,
+    double? width = 120,
+    double? fontSize = 16}) {
   return Container(
       padding: edgeInsets12,
       decoration:
@@ -65,7 +60,7 @@ Widget customButton({
               alignment: Alignment.center,
               child: Text(
                 title,
-                style: const TextStyle(color: wColor, fontSize: 16),
+                style: TextStyle(color: wColor, fontSize: fontSize),
               ),
             ),
           ],

@@ -22,7 +22,8 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   String query = "";
 
-  var result = "";
+  // ignore: prefer_typing_uninitialized_variables
+  var result;
   searchFunction(query, searchList) {
     result = searchList.where((element) {
       return element["productName"].toUpperCase().contains(query) ||
@@ -155,14 +156,15 @@ class HomePageState extends State<HomePage> {
     size = MediaQuery.of(context).size;
     getCurrentUserDataFunction();
     return Scaffold(
-      extendBody: true,
+      resizeToAvoidBottomInset: false,
       drawer: const MyDrawer(),
       appBar: AppBar(
         backgroundColor: bColor,
-        title: const Text(
-          "Mr Broaster",
-          style: TextStyle(color: Colors.black),
-        ),
+        title: Text('Grocery App'.toUpperCase(),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+            )),
         elevation: 0,
         centerTitle: true,
       ),

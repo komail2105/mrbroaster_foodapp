@@ -9,11 +9,29 @@ import 'package:mrbroaster_foodapp/views/home/home.dart';
 import 'package:mrbroaster_foodapp/views/profile/profile_page.dart';
 import 'package:mrbroaster_foodapp/views/welcome/welcome.dart';
 
+import '../../products/products.dart';
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    getProfileImage() {
+      if (firebaseAuth.currentUser!.photoURL != null) {
+        return Image.asset(
+          firebaseAuth.currentUser!.photoURL.toString(),
+          height: 72,
+          width: 72,
+        );
+      } else {
+        return const Icon(
+          Icons.account_circle,
+          size: 72,
+        );
+      }
+    }
+
     return Drawer(
       elevation: 0,
       backgroundColor: Colors.white,
@@ -21,11 +39,13 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
+            margin: EdgeInsets.zero,
             decoration: const BoxDecoration(color: bColor),
             accountName: Text(userModel.uname),
             accountEmail: Text(userModel.uemail),
             currentAccountPicture: CircleAvatar(
-              child: Image.asset("assets/images/logomrbroaster.png"),
+              backgroundColor: Colors.transparent,
+              child: getProfileImage(),
             ),
           ),
           ListTile(
@@ -35,6 +55,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.person,
             ),
+            minLeadingWidth: 32,
             title: const Text("Profile"),
           ),
           ListTile(
@@ -45,6 +66,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.shopping_cart_rounded,
             ),
+            minLeadingWidth: 32,
             title: const Text("Cart"),
           ),
           ListTile(
@@ -55,13 +77,26 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.favorite,
             ),
+            minLeadingWidth: 32,
             title: const Text("Favorite"),
+          ),
+          ListTile(
+            onTap: () {
+              RoutingPage.goTonext(
+                  context: context, navigateTo: const ProductsPage());
+            },
+            leading: const Icon(
+              Icons.square_rounded,
+            ),
+            minLeadingWidth: 32,
+            title: const Text("Products"),
           ),
           const ListTile(
             leading: Icon(
-              Icons.shopping_basket_sharp,
+              Icons.receipt_rounded,
             ),
-            title: Text("My Order"),
+            minLeadingWidth: 32,
+            title: Text("Bills"),
           ),
           ListTile(
             onTap: () {
@@ -73,11 +108,12 @@ class MyDrawer extends StatelessWidget {
                     ),
                   );
             },
+            minLeadingWidth: 32,
             leading: const Icon(
               Icons.exit_to_app,
             ),
             title: const Text("Log out"),
-          )
+          ),
         ],
       ),
     );

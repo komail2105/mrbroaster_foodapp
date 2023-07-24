@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Login to your existant account of Dine Out",
+                  "Login to your existant account of GrocaryApp",
                   style: TextStyle(
                     fontSize: doubleSize16,
                     fontFamily: fontProximaNova,
@@ -67,9 +67,9 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 72,
                       child: TextField(
+                        textInputAction: TextInputAction.next,
                         controller: _email,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.person,
                               color: bColor,
@@ -86,7 +86,6 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _password,
                         obscureText: showpassword,
                         decoration: InputDecoration(
-                            focusedBorder: outlineInputBorder,
                             prefixIcon: const Icon(
                               Icons.lock,
                               color: bColor,
@@ -139,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 48,
                       onClick: () => {
                         authProviderLogin.validationLogin(
-                            uname: null,
+                            uname: _email,
                             upassword: _password,
                             uemail: _email,
                             context: context)

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_no_internet_widget/flutter_no_internet_widget.dart';
 import 'package:mrbroaster_foodapp/constants/constants.dart';
-import 'package:mrbroaster_foodapp/provider/cart_prodiver.dart';
+import 'package:mrbroaster_foodapp/provider/cart_provider.dart';
 import 'package:mrbroaster_foodapp/provider/favorite_provider.dart';
 import 'package:mrbroaster_foodapp/views/home/home.dart';
 import 'package:mrbroaster_foodapp/views/login/components/auth_provider.dart';
@@ -11,6 +11,7 @@ import 'package:mrbroaster_foodapp/views/signup/components/auth_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mrbroaster_foodapp/views/welcome/welcome.dart';
 import 'package:provider/provider.dart';
+
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -47,6 +48,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    outlineInputBorder({Color? color}) => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(
+          color: color ?? Colors.black54,
+          width: 1.50,
+        ));
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -66,8 +74,14 @@ class MyApp extends StatelessWidget {
         // navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.black),
+          inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: outlineInputBorder(),
+            enabledBorder:
+                outlineInputBorder(color: Colors.black.withOpacity(0.75)),
+            floatingLabelStyle: const TextStyle(
+              color: Colors.black54,
+              fontSize: 18,
+            ),
           ),
         ),
         home: StreamBuilder(

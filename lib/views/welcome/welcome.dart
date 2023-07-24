@@ -12,6 +12,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Align(
         alignment: Alignment.center,
         child: Column(
@@ -61,9 +62,10 @@ class TopPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: const [
         Text(
-          "Welcome To Food Order App",
+          "Welcome To Grocery App",
           style: TextStyle(
               fontFamily: fontProximaNova,
               fontSize: 28,

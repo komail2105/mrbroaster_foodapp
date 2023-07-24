@@ -13,7 +13,7 @@ class AuthProviderLogin with ChangeNotifier {
   bool loading = false;
 
   void validationLogin(
-      {required TextEditingController? uname,
+      {TextEditingController? uname,
       required TextEditingController? uemail,
       required TextEditingController? upassword,
       required BuildContext context}) async {
@@ -35,7 +35,8 @@ class AuthProviderLogin with ChangeNotifier {
             .then((value) async {
           loading = false;
           notifyListeners();
-          RoutingPage.goTonextReplace(context: context, navigateTo: const HomePage());
+          RoutingPage.goTonextReplace(
+              context: context, navigateTo: const HomePage());
           return null;
         });
       } on FirebaseAuthException catch (e) {
@@ -50,7 +51,7 @@ class AuthProviderLogin with ChangeNotifier {
               .showSnackBar(SnackBar(content: Text("${e.message}")));
           return;
         }
-      } 
+      }
     }
   }
 }

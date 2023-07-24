@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrbroaster_foodapp/checkout/checkout.dart';
 import 'package:mrbroaster_foodapp/constants/constants.dart';
-import 'package:mrbroaster_foodapp/provider/cart_prodiver.dart';
+import 'package:mrbroaster_foodapp/provider/cart_provider.dart';
 import 'package:mrbroaster_foodapp/routes/routing_page.dart';
 import 'package:mrbroaster_foodapp/widgets/singlecartitem.dart';
 import 'package:provider/provider.dart';
